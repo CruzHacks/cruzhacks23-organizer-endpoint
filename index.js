@@ -1,19 +1,27 @@
 const express = require('express');
 const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 const { schedule } = require('./schedule.js');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 app.disable('x-powered-by');
 app.use(helmet());
 
-app.get('/', (req, res) => {
+const getRequestLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
+app.get('/api/schedule', getRequestLimiter, (req, res) => {
   res.status(200).send({
-    error: false,
-    status: 200,
-    itemCount: 3,
-    payload: JSON.stringify(schedule)
+    statusCode: 200,
+    message: 'OK',
+    count: 3,
+    payload: schedule
   });
 });
 
