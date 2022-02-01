@@ -1,0 +1,16 @@
+{
+  "name": "cruzhacks-organizer-challenge-endpoint",
+  "version": "1.0.0",
+  "description": "an endpoint used to retrieve data for the CruzHacks 2023 organizer challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Alper DeCarion  @ CruzHacks-2023-Engineering",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2",
+    "helmet": "^5.0.2"
+  }
+}
