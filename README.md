@@ -1,6 +1,6 @@
 ## API Schema And Endpoint
 
-Annoucements will be requested from a [RESTful API](https://www.codecademy.com/articles/what-is-rest) that retrieves data from a database.
+The Schedule will be requested from a [RESTful API](https://www.codecademy.com/articles/what-is-rest) that retrieves data from a "database".
 
 You'll be retrieving data via HTTP GET requests to this endpoint. The endpoint for the API is `https://cruzhacks23-organizer-endpoint.herokuapp.com/api/schedule`.
 
