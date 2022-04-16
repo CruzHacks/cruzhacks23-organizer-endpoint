@@ -2,12 +2,17 @@ const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const { schedule } = require('./schedule.js');
+const cors = require('cors')
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
 app.disable('x-powered-by');
 app.use(helmet());
+app.use(cors({
+  origin: '*'
+  }))
+;
 
 const getRequestLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
